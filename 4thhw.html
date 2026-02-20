@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: sans-serif;
+        }
+
+        .like-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            font-size: 20px;
+            cursor: pointer;
+            border: 2px solid #ccc;
+            border-radius: 30px;
+            background-color: white;
+            color: #555;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .like-btn.liked {
+            border-color: #e74c3c;
+            background-color: #fdeaea;
+            color: #e74c3c;
+        }
+
+        .heart {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="likeButton" class="like-btn">
+        <span class="heart">🤍</span>
+        <span class="text">Like</span>
+    </div>
+
+    <script>
+        const likeBtn = document.getElementById('likeButton');
+        const heart = likeBtn.querySelector('.heart');
+        const text = likeBtn.querySelector('.text');
+
+        likeBtn.addEventListener('click', () => {
+            likeBtn.classList.toggle('liked');
+
+            if (likeBtn.classList.contains('liked')) {
+                heart.textContent = '❤️';
+                text.textContent = 'Liked';
+            } else {
+                heart.textContent = '🤍';
+                text.textContent = 'Like';
+            }
+        });
+    </script>
+</body>
+</html>

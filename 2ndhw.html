@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+        .container {
+            border: 2px solid #333;
+            background-color: #f9f9f9;
+            transition: all 0.3s ease;
+            font-family: sans-serif;
+            width: fit-content;
+            margin-top: 20px;
+        }
+
+        .container.compact {
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        .container.large {
+            padding: 40px;
+            font-size: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="layoutBtn">Switch to Large</button>
+
+    <div id="mainContainer" class="container compact">
+        <h2>Layout Container</h2>
+        <p>Этот блок меняет внутренние отступы и размер шрифта.</p>
+    </div>
+
+    <script>
+        const container = document.getElementById('mainContainer');
+        const btn = document.getElementById('layoutBtn');
+
+        btn.addEventListener('click', () => {
+            if (container.classList.contains('compact')) {
+                container.classList.replace('compact', 'large');
+                btn.textContent = 'Switch to Compact';
+            } else {
+                container.classList.replace('large', 'compact');
+                btn.textContent = 'Switch to Large';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+<style>
+        .card {
+            width: 250px;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: #ffffff;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-family: sans-serif;
+        }
+
+        .card.selected {
+            border-color: #007bff;
+            background-color: #e7f1ff;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 1px solid #007bff;
+            background: white;
+            color: #007bff;
+        }
+
+        .card.selected button {
+            background: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card" id="myCard">
+        <h3>Card Item</h3>
+        <p>Нажмите кнопку для выбора</p>
+        <button id="selectBtn">Select</button>
+    </div>
+
+    <script>
+        const card = document.getElementById('myCard');
+        const btn = document.getElementById('selectBtn');
+
+        btn.addEventListener('click', () => {
+            card.classList.toggle('selected');
+            
+            if (card.classList.contains('selected')) {
+                btn.textContent = 'Unselect';
+            } else {
+                btn.textContent = 'Select';
+            }
+        });
+    </script>
+</body>
+</html>
